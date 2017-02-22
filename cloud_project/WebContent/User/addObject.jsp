@@ -73,11 +73,13 @@
 																class="form-control" required
 																placeholder="Object Description" />
 														</div>
-														<!-- <div class="m-t-10">
-															<input type="password" class="form-control" required
-																data-parsley-equalto="#pass2"
-																placeholder="Re-Type Password" />
-														</div> -->
+														<div class="m-t-10">
+															<form action="#" class="dropzone">
+																<div class="fallback">
+																	<input name="file" type="file" multiple="multiple">
+																</div>
+															</form>
+														</div>
 													</div>
 													<!-- <div class="form-group">
 														<label>Region</label>
