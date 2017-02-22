@@ -35,7 +35,7 @@
 									class="mdi mdi-plus"></i></span></a>
 						<ul class="list-unstyled">
 								<li><a href="addBucket.jsp">New Folder</a></li>
-								<li><a href="ui-panels.html">File Upload</a></li>
+								<li><a href="addObject.jsp">File Upload</a></li>
 								<li><a href="ui-tabs-accordions.html">Folder Upload</a></li>
 								<!-- <li><a href="ui-modals.html">Modals</a></li>
 								<li><a href="ui-components.html">Components</a></li>

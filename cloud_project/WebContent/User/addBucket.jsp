@@ -79,7 +79,7 @@
 																placeholder="Re-Type Password" />
 														</div> -->
 													</div>
-													<div class="form-group">
+													<!-- <div class="form-group">
 														<label>Region</label>
 														<div>
 															<select id="txtRegion" name="txtRegion"
@@ -107,7 +107,7 @@
 																<option value="VE">Venezuela</option>
 															</select>
 														</div>
-													</div>
+													</div> -->
 													<!-- <div class="form-group">
 														<label>URL</label>
 														<div>

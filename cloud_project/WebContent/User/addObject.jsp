@@ -1,433 +1,304 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sigma App - Validation</title>
-    <!-- PACE-->
-    <link rel="stylesheet" type="text/css" href="css/pace-theme-flash.css">
-    <script type="text/javascript" src="js/pace.min.js"></script>
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <!-- Ionicons-->
-    <link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
-    <!-- Malihu Scrollbar-->
-    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css">
-    <!-- Animo.js-->
-    <link rel="stylesheet" type="text/css" href="css/animate-animo.min.css">
-    <!-- Bootstrap Progressbar-->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-progressbar-3.3.4.min.css">
-    <!-- Core CSS-->
-    <link rel="stylesheet" type="text/css" href="css/first-layout.css">
-  </head>
-  <body>
-    <!-- Header start-->
-  	<jsp:include page="header.jsp"></jsp:include>
-    <!-- Header end-->
-    
-    <div class="main-container">
-      <!-- Main Sidebar start-->
-      <jsp:include page="menu.jsp"></jsp:include>
-      <!-- Main Sidebar end-->
-      
-      
-      <div class="page-container">
-        <div class="page-content container-fluid">
-          <div class="widget">
-            <div class="widget-heading">
-              <h3 class="widget-title">Add Object</h3>
-            </div>
-            <div class="widget-body">
-              <form id="form-horizontal" method="post" novalidate="novalidate" class="form-horizontal">
-                <div class="form-group">
-                  <label for="txtObjectName" class="col-sm-2 control-label">Object Name:</label>
-                  <div class="col-sm-10">
-                    <input id="txtObjectName" type="text" name="txtObjectName" placeholder="Bucket Name" data-rule-required="true" data-rule-rangelength="[10,30]" data-rule-email="true" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="txtObjectDescription" class="col-sm-2 control-label">Object Description</label>
-                  
-                  <div class="col-sm-10">
-                    <input id="txtObjectDescription" type="text" name="txtObjectDescription" placeholder="Bucket Description" data-rule-required="true" data-rule-phoneus="true" class="form-control">
-                  </div>
-                </div>
-                <!-- <div class="form-group">
-                  <label for="txtRegion" class="col-sm-2 control-label">Region</label>
-                  <div class="col-sm-10">
-                    <select id="txtRegion" name="txtRegion" data-rule-required="true" class="form-control">
-                      <option value="">-- Select a Region --</option>
-                      <option value="US">United States</option>
-                      <option value="BG">Bulgaria</option>
-                      <option value="BR">Brazil</option>
-                      <option value="CN">China</option>
-                      <option value="CZ">Czech Republic</option>
-                      <option value="DK">Denmark</option>
-                      <option value="FR">France</option>
-                      <option value="DE">Germany</option>
-                      <option value="IN">India</option>
-                      <option value="MA">Morocco</option>
-                      <option value="NL">Netherlands</option>
-                      <option value="PK">Pakistan</option>
-                      <option value="RO">Romania</option>
-                      <option value="RU">Russia</option>
-                      <option value="SK">Slovakia</option>
-                      <option value="ES">Spain</option>
-                      <option value="TH">Thailand</option>
-                      <option value="AE">United Arab Emirates</option>
-                      <option value="GB">United Kingdom</option>
-                      <option value="VE">Venezuela</option>
-                    </select>
-                  </div>
-                </div> -->
-                
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" name="btnSubmit" class="btn btn-raised btn-black">Add</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-       
-        </div>
-      </div>
-      <!-- Right Sidebar start-->
-      <aside class="right-sidebar closed">
-        <ul role="tablist" class="nav nav-tabs nav-justified nav-sidebar">
-          <li role="presentation" class="active"><a href="#chat" aria-controls="chat" role="tab" data-toggle="tab"><i class="ion-ios-chatboxes-outline"></i></a></li>
-          <li role="presentation"><a href="#system" aria-controls="system" role="tab" data-toggle="tab"><i class="ion-ios-pie-outline"></i></a></li>
-          <li role="presentation"><a href="#ticket" aria-controls="ticket" role="tab" data-toggle="tab"><i class="ion-ios-list-outline"></i></a></li>
-          <li role="presentation"><a href="#setting" aria-controls="setting" role="tab" data-toggle="tab"><i class="ion-ios-gear-outline"></i></a></li>
-        </ul>
-        <div data-mcs-theme="minimal-dark" class="tab-content nav-sidebar-content mCustomScrollbar">
-          <div id="chat" role="tabpanel" class="tab-pane fade in active">
-            <form>
-              <div class="form-group has-feedback">
-                <input type="text" aria-describedby="inputChatSearch" placeholder="Chat with..." class="form-control rounded"><span aria-hidden="true" class="ion-search form-control-feedback"></span><span id="inputChatSearch" class="sr-only">(default)</span>
-              </div>
-            </form>
-            <div class="sidebar-category">Online</div>
-            <ul class="chat-list mb-0 media-list">
-              <li class="media"><a href="javascript:;" class="conversation-toggle">
-                  <div class="media-left avatar"><img src="images/20.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
-                  <div class="media-body">
-                    <h5 class="media-heading">Crystal Wheeler</h5>
-                    <p class="text-muted mb-0">United States</p>
-                  </div>
-                  <div class="media-right"><span class="badge bg-danger">1</span></div></a></li>
-              <li class="media"><a href="javascript:;" class="conversation-toggle">
-                  <div class="media-left avatar"><img src="images/01.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
-                  <div class="media-body">
-                    <h5 class="media-heading">Brian Austin</h5>
-                    <p class="text-muted mb-0">brianaustin@example.com</p>
-                  </div></a></li>
-              <li class="media"><a href="javascript:;" class="conversation-toggle">
-                  <div class="media-left avatar"><img src="images/02.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
-                  <div class="media-body">
-                    <h5 class="media-heading">David Clark</h5>
-                    <p class="text-muted mb-0">david.clark@example.com</p>
-                  </div></a></li>
-              <li class="media"><a href="javascript:;" class="conversation-toggle">
-                  <div class="media-left avatar"><img src="images/12.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
-                  <div class="media-body">
-                    <h5 class="media-heading">Emma Lawrence</h5>
-                    <p class="text-muted mb-0">(707) 680 1328</p>
-                  </div>
-                  <div class="media-right"><span class="badge bg-danger">3</span></div></a></li>
-              <li class="media"><a href="javascript:;" class="conversation-toggle">
-                  <div class="media-left avatar"><img src="images/06.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
-                  <div class="media-body">
-                    <h5 class="media-heading">Brian Hudson</h5>
-                    <p class="text-muted mb-0">06/03/1989</p>
-                  </div></a></li>
-            </ul>
-            <div class="sidebar-category">Away</div>
-            <ul class="chat-list mb-0 media-list">
-              <li class="media"><a href="javascript:;" class="conversation-toggle">
-                  <div class="media-left avatar"><img src="images/16.jpg" alt="" class="media-object img-circle"><span class="status bg-warning"></span></div>
-                  <div class="media-body">
-                    <h5 class="media-heading">Evelyn Martinez</h5>
-                    <p class="text-muted mb-0">evelyn_84@example.com</p>
-                  </div>
-                  <div class="media-right"><span class="badge bg-danger">1</span></div></a></li>
-              <li class="media"><a href="javascript:;" class="conversation-toggle">
-                  <div class="media-left avatar"><img src="images/09.jpg" alt="" class="media-object img-circle"><span class="status bg-warning"></span></div>
-                  <div class="media-body">
-                    <h5 class="media-heading">Nicholas Mitchell</h5>
-                    <p class="text-muted mb-0">(752) 282 4218</p>
-                  </div></a></li>
-              <li class="media"><a href="javascript:;" class="conversation-toggle">
-                  <div class="media-left avatar"><img src="images/03.jpg" alt="" class="media-object img-circle"><span class="status bg-warning"></span></div>
-                  <div class="media-body">
-                    <h5 class="media-heading">Tyler Gordon</h5>
-                    <p class="text-muted mb-0">tylergordon@example.com</p>
-                  </div></a></li>
-            </ul>
-            <div class="sidebar-category">Busy</div>
-            <ul class="chat-list mb-0 media-list">
-              <li class="media"><a href="javascript:;" class="conversation-toggle">
-                  <div class="media-left avatar"><img src="images/15.jpg" alt="" class="media-object img-circle"><span class="status bg-danger"></span></div>
-                  <div class="media-body">
-                    <h5 class="media-heading">Stephanie Ford</h5>
-                    <p class="text-muted mb-0">29/06/1992</p>
-                  </div></a></li>
-              <li class="media"><a href="javascript:;" class="conversation-toggle">
-                  <div class="media-left avatar"><img src="images/07.jpg" alt="" class="media-object img-circle"><span class="status bg-danger"></span></div>
-                  <div class="media-body">
-                    <h5 class="media-heading">Adam Sandoval</h5>
-                    <p class="text-muted mb-0">adam-86@example.com</p>
-                  </div></a></li>
-            </ul>
-          </div>
-          <div id="system" role="tabpanel" class="tab-pane fade">
-            <div class="sidebar-category">System</div>
-            <ul class="list-group divider mb-0">
-              <li class="list-group-item">
-                <div class="block clearfix"><span class="pull-left">Current user</span><span class="pull-right text-muted">lethemes</span></div>
-              </li>
-              <li class="list-group-item">
-                <div class="block clearfix"><span class="pull-left">Primary domain</span><span class="pull-right text-muted">lethemes.net</span></div>
-              </li>
-              <li class="list-group-item">
-                <div class="block clearfix"><span class="pull-left">Home directory</span><span class="pull-right text-muted">/home/lethemes</span></div>
-              </li>
-              <li class="list-group-item">
-                <div class="block clearfix"><span class="pull-left">Last login</span><span class="pull-right text-muted">10/28/2016</span></div>
-              </li>
-              <li class="list-group-item">
-                <div class="block clearfix"><span class="pull-left">Bandwidth</span><span class="pull-right text-muted">187.38 GB / 2000 GB</span></div>
-              </li>
-            </ul>
-            <div class="sidebar-category">Statistics</div>
-            <ul class="list-group mb-0">
-              <li class="list-group-item">
-                <div class="block clearfix mb-10"><span class="pull-left">Disk Usage</span><span class="pull-right label label-outline label-success">52.49%</span></div>
-                <div class="progress progress-xs mb-10">
-                  <div role="progressbar" data-transitiongoal="52" class="progress-bar progress-bar-success"></div>
-                </div>
-                <p class="mb-0">250.43 GB / 498.56 GB</p>
-              </li>
-              <li class="list-group-item">
-                <div class="block clearfix mb-10"><span class="pull-left">Subdomains</span><span class="pull-right label label-outline label-danger">85.51%</span></div>
-                <div class="progress progress-xs mb-10">
-                  <div role="progressbar" data-transitiongoal="85" class="progress-bar progress-bar-danger"></div>
-                </div>
-                <p class="mb-0">25 / 30</p>
-              </li>
-              <li class="list-group-item">
-                <div class="block clearfix mb-10"><span class="pull-left">Databases</span><span class="pull-right label label-outline label-purple">65.23%</span></div>
-                <div class="progress progress-xs mb-10">
-                  <div role="progressbar" data-transitiongoal="65" class="progress-bar progress-bar-purple"></div>
-                </div>
-                <p class="mb-0">36 / 50</p>
-              </li>
-            </ul>
-          </div>
-          <div id="ticket" role="tabpanel" class="tab-pane fade">
-            <ul class="milestones media-list mb-0">
-              <li class="media">
-                <div class="media-left pr-15"><img src="images/16.jpg" alt="" class="media-object mo-md img-circle"></div>
-                <div class="media-body">
-                  <time datetime="2016-12-10T20:50:48+07:00" class="fs-13 text-muted">9 minutes ago</time>
-                  <p class="mt-10 mb-0">Ethan Perkins <span class="text-success">commented</span> on your post</p>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left pr-15"><i class="ion-document-text media-object mo-md img-circle bg-primary text-center"></i></div>
-                <div class="media-body">
-                  <time datetime="2016-12-10T20:50:48+07:00" class="fs-13 text-muted">20 minutes ago</time>
-                  <p class="mt-10 mb-0">Prepare for presentation</p>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left pr-15"><span class="media-object mo-md img-circle bg-danger text-center fw-700">B</span></div>
-                <div class="media-body">
-                  <time datetime="2016-12-10T20:50:48+07:00" class="fs-13 text-muted">28 minutes ago</time>
-                  <p class="mt-10 mb-0">Brandon Garcia <span class="text-danger">subscribed</span> to Harold Fuller</p>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left pr-15"><img src="images/05.jpg" alt="" class="media-object mo-md img-circle"></div>
-                <div class="media-body">
-                  <time datetime="2016-12-10T20:50:48+07:00" class="fs-13 text-muted">20 minutes ago</time>
-                  <p class="mt-10 mb-0">Sell 15 products to LE company</p>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left pr-15"><i class="ion-stats-bars media-object mo-md img-circle bg-purple text-center"></i></div>
-                <div class="media-body">
-                  <time datetime="2016-12-10T20:50:48+07:00" class="fs-13 text-muted">30 minutes ago</time>
-                  <p class="mt-10 mb-0">3 New products were added!</p>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left pr-15"><i class="ion-ios-telephone media-object mo-md img-circle bg-success text-center"></i></div>
-                <div class="media-body">
-                  <time datetime="2016-12-10T20:50:48+07:00" class="fs-13 text-muted">52 minutes ago</time>
-                  <p class="mt-10 mb-0">Contact to the customer service</p>
-                </div>
-              </li>
-              <li class="media">
-                <div class="media-left pr-15"><img src="images/09.jpg" alt="" class="media-object mo-md img-circle"></div>
-                <div class="media-body">
-                  <time datetime="2016-12-10T20:50:48+07:00" class="fs-13 text-muted">2 hours ago</time>
-                  <p class="mt-10 mb-0">Paul Clark purchased Sigma web app kit</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div id="setting" role="tabpanel" class="tab-pane fade">
-            <form class="form-horizontal">
-              <div class="clearfix">
-                <h5 class="pull-left lh-1">Use SSL</h5>
-                <div class="switch pull-right">
-                  <input id="setting-1" type="checkbox" checked="">
-                  <label for="setting-1" class="switch-black"></label>
-                </div>
-              </div>
-              <p class="text-muted">Mi mus natoque et eros metus ipsum massa adipiscing massa tincidunt ipsum ad.</p>
-              <div class="clearfix">
-                <h5 class="pull-left lh-1">Use Shared Sessions</h5>
-                <div class="switch pull-right">
-                  <input id="setting-2" type="checkbox">
-                  <label for="setting-2" class="switch-black"></label>
-                </div>
-              </div>
-              <p class="text-muted">Vel etiam scelerisque lacinia ipsum dis massa at turpis phasellus nam vehicula augue.</p>
-              <div class="clearfix">
-                <h5 class="pull-left lh-1">Use SEO URLs</h5>
-                <div class="switch pull-right">
-                  <input id="setting-3" type="checkbox" checked="">
-                  <label for="setting-3" class="switch-black"></label>
-                </div>
-              </div>
-              <p class="text-muted">Phasellus ridiculus per tincidunt feugiat cras nam hendrerit consectetur.</p>
-              <div class="clearfix">
-                <h5 class="pull-left lh-1">Maintenance Mode</h5>
-                <div class="switch pull-right">
-                  <input id="setting-4" type="checkbox">
-                  <label for="setting-4" class="switch-black"></label>
-                </div>
-              </div>
-              <p class="text-muted">Metus cursus dolor lorem suscipit in euismod metus erat turpis elementum vulputate pharetra.</p>
-              <div class="clearfix">
-                <h5 class="pull-left lh-1">Allow Forgotten Password</h5>
-                <div class="switch pull-right">
-                  <input id="setting-5" type="checkbox" checked="">
-                  <label for="setting-5" class="switch-black"></label>
-                </div>
-              </div>
-              <p class="text-muted">Hendrerit lacus volutpat senectus habitant ligula tortor.</p>
-            </form>
-          </div>
-        </div>
-      </aside>
-      <aside class="conversation closed">
-        <h5 class="text-center m-0 p-20">Emma Lawrence<a href="javascript:;" class="conversation-toggle pull-left"><i class="ion-close-round text-muted"></i></a><a href="javascript:;" class="pull-right"><i class="ion-refresh text-muted"></i></a></h5>
-        <ul data-mcs-theme="minimal-dark" class="chat-content pl-20 pr-20 mCustomScrollbar">
-          <li class="chat-item self"><img src="images/04.jpg" alt="" class="img-circle chat-avatar">
-            <div class="chat-bubble">
-              <div class="chat-text">Hello.</div>
-            </div>
-            <time datetime="2016-12-10T20:50:48+07:00" class="block fs-12 text-muted"><i class="ion-clock"></i> 12 minutes ago</time>
-          </li>
-          <li class="chat-item other"><img src="images/12.jpg" alt="" class="img-circle chat-avatar">
-            <div class="chat-bubble">
-              <div class="chat-text">Hi.</div>
-            </div>
-            <time datetime="2016-12-10T20:50:48+07:00" class="block fs-12 text-muted"><i class="ion-clock"></i> 11 minutes ago</time>
-          </li>
-          <li class="chat-item self"><img src="images/04.jpg" alt="" class="img-circle chat-avatar">
-            <div class="chat-bubble">
-              <div class="chat-text">How are you?</div>
-            </div>
-            <time datetime="2016-12-10T20:50:48+07:00" class="block fs-12 text-muted"><i class="ion-clock"></i> 11 minutes ago</time>
-          </li>
-          <li class="chat-item other"><img src="images/12.jpg" alt="" class="img-circle chat-avatar">
-            <div class="chat-bubble">
-              <div class="chat-text">I'm good. How are you?</div>
-            </div>
-            <time datetime="2016-12-10T20:50:48+07:00" class="block fs-12 text-muted"><i class="ion-clock"></i> 10 minutes ago</time>
-          </li>
-          <li class="chat-item self"><img src="images/04.jpg" alt="" class="img-circle chat-avatar">
-            <div class="chat-bubble">
-              <div class="chat-text">Good. Do you speak English?</div>
-            </div>
-            <time datetime="2016-12-10T20:50:48+07:00" class="block fs-12 text-muted"><i class="ion-clock"></i> 9 minutes ago</time>
-          </li>
-          <li class="chat-item other"><img src="images/12.jpg" alt="" class="img-circle chat-avatar">
-            <div class="chat-bubble">
-              <div class="chat-text">A little. Are you American?</div>
-            </div>
-            <time datetime="2016-12-10T20:50:48+07:00" class="block fs-12 text-muted"><i class="ion-clock"></i> 8 minutes ago</time>
-          </li>
-          <li class="chat-item self"><img src="images/04.jpg" alt="" class="img-circle chat-avatar">
-            <div class="chat-bubble">
-              <div class="chat-text">Yes.</div>
-            </div>
-            <time datetime="2016-12-10T20:50:48+07:00" class="block fs-12 text-muted"><i class="ion-clock"></i> 8 minutes ago</time>
-          </li>
-          <li class="chat-item other"><img src="images/12.jpg" alt="" class="img-circle chat-avatar">
-            <div class="chat-bubble">
-              <div class="chat-text">Where are you from?</div>
-            </div>
-            <time datetime="2016-12-10T20:50:48+07:00" class="block fs-12 text-muted"><i class="ion-clock"></i> 7 minutes ago</time>
-          </li>
-          <li class="chat-item self"><img src="images/04.jpg" alt="" class="img-circle chat-avatar">
-            <div class="chat-bubble">
-              <div class="chat-text">I'm from California.</div>
-            </div>
-            <time datetime="2016-12-10T20:50:48+07:00" class="block fs-12 text-muted"><i class="ion-clock"></i> 6 minutes ago</time>
-          </li>
-          <li class="chat-item other"><img src="images/12.jpg" alt="" class="img-circle chat-avatar">
-            <div class="chat-bubble">
-              <div class="chat-text">Nice to meet you.</div>
-            </div>
-            <time datetime="2016-12-10T20:50:48+07:00" class="block fs-12 text-muted"><i class="ion-clock"></i> 15 seconds ago</time>
-          </li>
-          <li class="chat-item self"><img src="images/04.jpg" alt="" class="img-circle chat-avatar">
-            <div class="chat-bubble">
-              <div class="chat-text">Nice to meet you too.</div>
-            </div>
-            <time datetime="2016-12-10T20:50:48+07:00" class="block fs-12 text-muted"><i class="ion-clock"></i> Just now</time>
-          </li>
-        </ul>
-        <form class="pl-20 pr-20">
-          <div class="form-group has-feedback mb-0">
-            <input type="text" aria-describedby="inputSendMessage" placeholder="Sent a message" class="form-control rounded"><span aria-hidden="true" class="ion-edit form-control-feedback"></span><span id="inputSendMessage" class="sr-only">(default)</span>
-          </div>
-        </form>
-      </aside>
-      <!-- Right Sidebar end-->
-    </div>
-    <!-- jQuery-->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <!-- Bootstrap JavaScript-->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <!-- Malihu Scrollbar-->
-    <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <!-- Animo.js-->
-    <script type="text/javascript" src="js/animo.min.js"></script>
-    <!-- Bootstrap Progressbar-->
-    <script type="text/javascript" src="js/bootstrap-progressbar.min.js"></script>
-    <!-- jQuery Easy Pie Chart-->
-    <script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
-    <!-- MomentJS-->
-    <script type="text/javascript" src="plugins/moment/min/moment.min.js"></script>
-    <!-- jQuery Validation-->
-    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="js/additional-methods.min.js"></script>
-    <!-- Bootstrap FileStyle-->
-    <script type="text/javascript" src="js/bootstrap-filestyle.js"></script>
-    <!-- Core JS-->
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/demo.js"></script>
-    <script type="text/javascript" src="js/forms-validation.js"></script>
-  </body>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Xadmino - Responsive Admin Dashboard Template</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta content="Admin Dashboard" name="description" />
+<meta content="ThemeDesign" name="author" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="shortcut icon" href="assets/images/favicon.ico">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/icons.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script>
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script',
+			'https://www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-86308552-1', 'auto');
+	ga('send', 'pageview');
+</script>
+</head>
+<body class="fixed-left">
+	<div id="wrapper">
+		<jsp:include page="header.jsp"></jsp:include>
+		<jsp:include page="menu.jsp"></jsp:include>
+		<div class="content-page">
+			<div class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="page-header-title">
+								<h4 class="pull-left page-title">Upload File</h4>
+								<!-- <ol class="breadcrumb pull-right">
+									<li><a href="#">Xadmino</a></li>
+									<li><a href="#">Forms</a></li>
+									<li class="active">Form Validation</li>
+								</ol> -->
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="panel panel-primary">
+								<!-- <div class="panel-heading">
+									<h3 class="panel-title">Examples</h3>
+								</div> -->
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-sm-6 col-xs-12">
+											<!-- <h3 class="header-title m-t-0">
+												<small>Validation type</small>
+											</h3> -->
+											<div class="m-t-20">
+												<form class="" action="#">
+													<div class="form-group">
+														<label>Object Name</label> <input type="text"
+															class="form-control" required placeholder="Object Name" />
+													</div>
+													<div class="form-group">
+														<label>Object Description</label>
+														<div>
+															<input type="text" id="bucketDescription"
+																class="form-control" required
+																placeholder="Object Description" />
+														</div>
+														<!-- <div class="m-t-10">
+															<input type="password" class="form-control" required
+																data-parsley-equalto="#pass2"
+																placeholder="Re-Type Password" />
+														</div> -->
+													</div>
+													<!-- <div class="form-group">
+														<label>Region</label>
+														<div>
+															<select id="txtRegion" name="txtRegion"
+																data-rule-required="true" class="form-control">
+																<option value="">-- Select a Region --</option>
+																<option value="US">United States</option>
+																<option value="BG">Bulgaria</option>
+																<option value="BR">Brazil</option>
+																<option value="CN">China</option>
+																<option value="CZ">Czech Republic</option>
+																<option value="DK">Denmark</option>
+																<option value="FR">France</option>
+																<option value="DE">Germany</option>
+																<option value="IN">India</option>
+																<option value="MA">Morocco</option>
+																<option value="NL">Netherlands</option>
+																<option value="PK">Pakistan</option>
+																<option value="RO">Romania</option>
+																<option value="RU">Russia</option>
+																<option value="SK">Slovakia</option>
+																<option value="ES">Spain</option>
+																<option value="TH">Thailand</option>
+																<option value="AE">United Arab Emirates</option>
+																<option value="GB">United Kingdom</option>
+																<option value="VE">Venezuela</option>
+															</select>
+														</div>
+													</div> -->
+													<!-- <div class="form-group">
+														<label>URL</label>
+														<div>
+															<input parsley-type="url" type="url" class="form-control"
+																required placeholder="URL" />
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Digits</label>
+														<div>
+															<input data-parsley-type="digits" type="text"
+																class="form-control" required
+																placeholder="Enter only digits" />
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Number</label>
+														<div>
+															<input data-parsley-type="number" type="text"
+																class="form-control" required
+																placeholder="Enter only numbers" />
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Alphanumeric</label>
+														<div>
+															<input data-parsley-type="alphanum" type="text"
+																class="form-control" required
+																placeholder="Enter alphanumeric value" />
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Textarea</label>
+														<div>
+															<textarea required class="form-control" rows="5"></textarea>
+														</div>
+													</div> -->
+													<div class="form-group">
+														<div>
+															<button type="submit"
+																class="btn btn-primary waves-effect waves-light">
+																Submit</button>
+															<!-- <button type="reset"
+																class="btn btn-default waves-effect m-l-5">
+																Cancel</button> -->
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+										<!-- <div class="col-sm-6 col-xs-12">
+											<h3 class="header-title m-t-0">
+												<small>Range validation</small>
+											</h3>
+											<div class="m-t-20">
+												<form action="#">
+													<div class="form-group">
+														<label>Min Length</label>
+														<div>
+															<input type="text" class="form-control" required
+																data-parsley-minlength="6" placeholder="Min 6 chars." />
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Max Length</label>
+														<div>
+															<input type="text" class="form-control" required
+																data-parsley-maxlength="6" placeholder="Max 6 chars." />
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Range Length</label>
+														<div>
+															<input type="text" class="form-control" required
+																data-parsley-length="[5,10]"
+																placeholder="Text between 5 - 10 chars length" />
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Min Value</label>
+														<div>
+															<input type="text" class="form-control" required
+																data-parsley-min="6" placeholder="Min value is 6" />
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Max Value</label>
+														<div>
+															<input type="text" class="form-control" required
+																data-parsley-max="6" placeholder="Max value is 6" />
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Range Value</label>
+														<div>
+															<input class="form-control" required type="text range"
+																min="6" max="100" placeholder="Number between 6 - 100" />
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Regular Exp</label>
+														<div>
+															<input type="text" class="form-control" required
+																data-parsley-pattern="#[A-Fa-f0-9]{6}"
+																placeholder="Hex. Color" />
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Min check</label>
+														<div>
+															<div class="checkbox checkbox-success">
+																<input id="checkbox1" type="checkbox"
+																	data-parsley-multiple="groups"
+																	data-parsley-mincheck="2"> <label
+																	for="checkbox1"> And this </label>
+															</div>
+															<div class="checkbox checkbox-success">
+																<input id="checkbox2" type="checkbox"
+																	data-parsley-multiple="groups"
+																	data-parsley-mincheck="2"> <label
+																	for="checkbox2"> Can't check this </label>
+															</div>
+															<div class="checkbox checkbox-success">
+																<input id="checkbox3" type="checkbox"
+																	data-parsley-multiple="groups"
+																	data-parsley-mincheck="2" required> <label
+																	for="checkbox3"> This too </label>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label>Max check</label>
+														<div>
+															<div class="checkbox checkbox-primary">
+																<input id="checkbox4" type="checkbox"
+																	data-parsley-multiple="group1"> <label
+																	for="checkbox4"> And this </label>
+															</div>
+															<div class="checkbox checkbox-primary">
+																<input id="checkbox5" type="checkbox"
+																	data-parsley-multiple="group1"> <label
+																	for="checkbox5"> Can't check this </label>
+															</div>
+															<div class="checkbox checkbox-primary">
+																<input id="checkbox6" type="checkbox"
+																	data-parsley-multiple="group1"
+																	data-parsley-maxcheck="1"> <label
+																	for="checkbox6"> This too </label>
+															</div>
+														</div>
+													</div>
+													<div class="form-group m-b-0">
+														<div>
+															<button type="submit"
+																class="btn btn-primary waves-effect waves-light">
+																Submit</button>
+															<button type="reset"
+																class="btn btn-default waves-effect m-l-5">
+																Cancel</button>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div> -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer class="footer"> 2016 © Xadmino. </footer>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/modernizr.min.js"></script>
+	<script src="js/detect.js"></script>
+	<script src="js/fastclick.js"></script>
+	<script src="js/jquery.slimscroll.js"></script>
+	<script src="js/jquery.blockUI.js"></script>
+	<script src="js/waves.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/jquery.scrollTo.min.js"></script>
+	<script type="text/javascript" src="js/parsley.min.js"></script>
+	<script src="js/app.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('form').parsley();
+		});
+	</script>
+</body>
 </html>
