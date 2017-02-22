@@ -34,7 +34,7 @@
 									New </span> <span class="pull-right"><i
 									class="mdi mdi-plus"></i></span></a>
 						<ul class="list-unstyled">
-								<li><a href="ui-buttons.html">New Folder</a></li>
+								<li><a href="addBucket.jsp">New Folder</a></li>
 								<li><a href="ui-panels.html">File Upload</a></li>
 								<li><a href="ui-tabs-accordions.html">Folder Upload</a></li>
 								<!-- <li><a href="ui-modals.html">Modals</a></li>
